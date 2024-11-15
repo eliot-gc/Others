@@ -2,7 +2,7 @@
 ::Github link: https://github.com/Wizurth
 
 set PROJECT_NAME=RugbyMatch
-set DIRECTORY_PROJECT=lyo-t2-amiga-p3-11
+set DIRECTORY_PROJECT=lyo-t2-amiga-p3-11-temp
 set bCopySFMLDll=true
 set bAutoOpenSLN=true
 
@@ -14,15 +14,15 @@ if not "%bDebugMode%" == "true" (
 
 
 if /i "%bCopySFMLDll%" == "true" (
-	xcopy /i /c /q /y "src\SFML*\bin\*-d.dll" "ide\vs\%PROJECT_NAME%\Build\Debug\"
-	xcopy /i /c /q /y "src\SFML*\bin\*.dll" "ide\vs\%PROJECT_NAME%\Build\Release\"
+	xcopy /i /c /q /y "src\SFML\bin\*.dll" "ide\vs\%PROJECT_NAME%\Build\Debug\"
+	xcopy /i /c /q /y "src\SFML\bin\*.dll" "ide\vs\%PROJECT_NAME%\Build\Release\"
 )
 
 
 "../SolutionGenerator.exe" -make ../%DIRECTORY_PROJECT%
 
 if /i "%bAutoOpenSLN%" == "true" (
-	start "" "ide/vs/%PROJECT_NAME%.sln"
+	start "" "ide\vs\%PROJECT_NAME%.sln"
 )
 
 
